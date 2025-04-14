@@ -1,9 +1,10 @@
 import Die from './Die'
 import { useState, useRef } from 'react'
 import { nanoid } from 'nanoid'
+import Confetti from 'react-confetti'
 
 export default function Main() {
-  const [dice, setDice] = useState(generateAllNewDice())
+  const [dice, setDice] = useState(() => generateAllNewDice())
 
   let gameWon = dice.every(die => die.isHeld) && 
                 dice.every(die => die.value === dice[0].value)
@@ -62,6 +63,7 @@ export default function Main() {
       >
         {gameWon ? 'New game' : 'Roll'}
       </button>
+      {gameWon && <Confetti />}
     </main>    
   )
 }
