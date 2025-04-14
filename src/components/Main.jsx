@@ -1,5 +1,5 @@
 import Die from './Die'
-import {useState} from 'react'
+import { useState, useRef } from 'react'
 import { nanoid } from 'nanoid'
 
 export default function Main() {
@@ -44,6 +44,8 @@ export default function Main() {
 
   return(
     <main>
+      <h1 className="title">Tenzies</h1>
+      <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
       <div className='dice-container'>
         {diceElements}
       </div>
