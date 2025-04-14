@@ -3,7 +3,7 @@ import {useState} from 'react'
 import { nanoid } from 'nanoid'
 
 export default function Main() {
-  const [dice, setDice] = useState([])
+  const [dice, setDice] = useState(generateAllNewDice())
 
   function generateAllNewDice() {
     const newDice = []
@@ -20,10 +20,27 @@ export default function Main() {
   }
 
   function rollDice() {
-    setDice(generateAllNewDice())
+    setDice(prevDice => (
+      prevDice.map(dice => ({...dice, value: dice.isHeld ? dice.value : Math.ceil(Math.random() * 6)}))
+    ))
   }
 
-  const diceElements = dice.map(dieObj => <Die key={dieObj.id} isHeld={dieObj.isHeld} num={dieObj.value}/>)
+  function hold(id) {
+    setDice(prevDice => (
+      prevDice.map(dice => ({...dice, isHeld: dice.id === id ? !dice.isHeld : dice.isHeld}))
+    ))
+  }
+
+
+  const diceElements = dice.map(dieObj => (
+    <Die 
+      key={dieObj.id} 
+      id={dieObj.id} 
+      num={dieObj.value} 
+      isHeld={dieObj.isHeld} 
+      hold={hold}
+    />
+  ))
 
   return(
     <main>
