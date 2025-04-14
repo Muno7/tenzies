@@ -3,6 +3,7 @@ box-sizing: border-box;
 }
 
 body {
+  font-family: Inter, sans-serif;
   margin: 0;
   display: flex;
   justify-content: center;
@@ -17,4 +18,30 @@ main {
   height: 320px;
   background-color: rgba(245, 245, 245, 1);
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dice-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.die {
+  font-family: Inter, sans-serif;
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: white;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
 }
