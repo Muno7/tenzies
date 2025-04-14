@@ -3,7 +3,7 @@ box-sizing: border-box;
 }
 
 body {
-  font-family: Inter, sans-serif;
+  font-family: Karla, sans-serif;
   margin: 0;
   display: flex;
   justify-content: center;
@@ -19,8 +19,10 @@ main {
   background-color: rgba(245, 245, 245, 1);
   border-radius: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
 }
 
 .dice-container {
@@ -31,7 +33,7 @@ main {
 }
 
 .die {
-  font-family: Inter, sans-serif;
+  font-family: Karla, sans-serif;
   width: 36px;
   height: 36px;
   border-radius: 4px;
@@ -44,4 +46,19 @@ main {
   font-weight: bold;
   border: none;
   cursor: pointer;
+}
+
+.roll {
+  background-color: rgba(80, 53, 255, 1);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  box-shadow: 0px 3.2px 7.68px 0px rgba(0, 0, 0, 0.18);
+  padding: 10px 30px;
+  transition: box-shadow, 100ms;
+}
+
+.roll:active {
+  box-shadow: none;
 }
